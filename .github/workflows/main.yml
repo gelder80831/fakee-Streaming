@@ -1,24 +1,23 @@
 name: Continuous Integreation and Deployment
 
-   on:
-      puah:
-         Braches:
-       -        master
-
-    jobs:
-       build:
-         run-on: ubunbtu-latest
-         steps:
-            - name: checkout code
-              uses: actions/checkout@v2
-            - name: setup .NET 5
-              uses: action/setup-donet@v1
+on:
+      push:
+         branches:
+           - master
+      jobs:
+          build:
+            run-on: ubunbtu-latest
+      steps:
+          - name: checkout code
+            uses: actions/checkout@v2
+          - name: setup .NET 5
+            uses: action/setup-donet@v1
               with:
               dotnet-version: dotnet '5.0.x'
 
-   -name: Restore and Build Dependencies
-       run:dotnet restore
-    -name:Build App
-     run:dotnet build -c release --no-restore
+            - name: Restore and Build Dependencies
+                run:dotnet restore
+                -name:Build App
+                  run:dotnet build -c release --no-restore
       
     
