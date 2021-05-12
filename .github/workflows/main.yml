@@ -4,20 +4,22 @@ on:
       push:
          branches:
            - master
-      jobs:
-          build:
-            run-on: ubunbtu-latest
+           
+jobs: 
+    build:
+      run-on: ubunbtu-latest
       steps:
-          - name: checkout code
-            uses: actions/checkout@v2
-          - name: setup .NET 5
-            uses: action/setup-donet@v1
-              with:
-              dotnet-version: dotnet '5.0.x'
+        - name: checkout code
+          uses: actions/checkout@v2
 
-            - name: Restore and Build Dependencies
-                run:dotnet restore
-                -name:Build App
+        - name: setup .NET 5
+      uses: action/setup-donet@v1
+      with:
+      dotnet-version: dotnet '5.0.x'
+      
+         - name: Restore and Build Dependencies 🚀
+           run:dotnet restore
+          - name:build App
                   run:dotnet build -c release --no-restore
       
     
