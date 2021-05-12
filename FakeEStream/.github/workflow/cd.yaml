@@ -3,7 +3,7 @@ name:
    on:
     puah:
        Braches:
-       -main
+       -master
 
 
     jobs:
